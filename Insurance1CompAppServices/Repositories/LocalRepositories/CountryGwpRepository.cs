@@ -1,4 +1,6 @@
 using Insurance1CompAppServices.Repositories;
+using Insurance1CompAppServices.Repositories.LocalRepositories.Ef;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -6,22 +8,29 @@ namespace Insurance1CompAppServices.Repositories.LocalRepositories
 {
     public class CountryGwpRepository : ICountryGwpRepository
     {
-        public async Task<Dictionary<string, List<double>>> GetGwpDataAsync(string country, List<string> lobs)
+        private readonly AppDbContext _context;
+
+        public CountryGwpRepository(AppDbContext context)
         {
-            // Replace with actual DB logic
-            var mockData = new Dictionary<string, List<double>>
-            {
-                { "property", new List<double> { 100, 200, 300, 400, 500, 600, 700, 800 } },
-                { "transport", new List<double> { 200, 300, 400, 500, 600, 700, 800, 900 } },
-                { "liability", new List<double> { 300, 400, 500, 600, 700, 800, 900, 1000 } }
-            };
-            var result = new Dictionary<string, List<double>>();
-            foreach (var lob in lobs)
-            {
-                if (mockData.ContainsKey(lob))
-                    result[lob] = mockData[lob];
-            }
-            return await Task.FromResult(result);
+            _context = context;
+        }
+
+        public async Task<Dictionary<string, List<double>>> GetGwpDataAsync(string country, List<string> lobs, int yearFrom, int yearTo)
+        {
+            var query = await _context.GwpRecords
+                .Where(g => g.CountryCode == country
+                        && lobs.Contains(g.LineOfBusinessCode)
+                        && g.Year >= yearFrom && g.Year <= yearTo)
+                .ToListAsync();
+
+            var grouped = query
+                .GroupBy(g => g.LineOfBusinessCode)
+                .ToDictionary(
+                    g => g.Key,
+                    g => g.OrderBy(x => x.Year).Select(x => (double)x.Value).ToList()
+                );
+
+            return grouped;
         }
     }
 }

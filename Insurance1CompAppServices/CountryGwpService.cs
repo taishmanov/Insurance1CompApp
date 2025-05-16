@@ -13,7 +13,7 @@ namespace Insurance1CompAppServices
 
         public async Task<Dictionary<string, double>> GetAverageGwpAsync(string country, List<string> lobs)
         {
-            var data = await _repository.GetGwpDataAsync(country, lobs);
+            var data = await _repository.GetGwpDataAsync(country, lobs, 2008, 2015);
             var result = new Dictionary<string, double>();
             foreach (var lob in lobs)
             {
