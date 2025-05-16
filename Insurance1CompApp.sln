@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insurance1CompAppApi", "Ins
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insurance1CompAppServices", "Insurance1CompAppServices\Insurance1CompAppServices.csproj", "{7F7C5DFB-EA67-40AA-AF47-6AA3F799A791}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insurance1CompAppServicesTests", "Insurance1CompAppServicesTests\Insurance1CompAppServicesTests.csproj", "{2466604E-9ECF-4E8D-B4DD-F901D1E2586B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7F7C5DFB-EA67-40AA-AF47-6AA3F799A791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F7C5DFB-EA67-40AA-AF47-6AA3F799A791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F7C5DFB-EA67-40AA-AF47-6AA3F799A791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2466604E-9ECF-4E8D-B4DD-F901D1E2586B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2466604E-9ECF-4E8D-B4DD-F901D1E2586B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2466604E-9ECF-4E8D-B4DD-F901D1E2586B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2466604E-9ECF-4E8D-B4DD-F901D1E2586B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

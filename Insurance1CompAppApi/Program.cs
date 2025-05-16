@@ -26,6 +26,8 @@ else
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 }
 
+builder.Services.AddMemoryCache();
+
 // ---------------------------------------------------------
 // Current web app services to the container.
 builder.Services.AddControllers();
