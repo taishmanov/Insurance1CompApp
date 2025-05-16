@@ -1,6 +1,0 @@
-@Insurance1CompAppApi_HostAddress = http://localhost:5196
-
-GET {{Insurance1CompAppApi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

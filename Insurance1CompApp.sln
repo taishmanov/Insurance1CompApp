@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insurance1CompAppApi", "Insurance1CompAppApi\Insurance1CompAppApi.csproj", "{5F3E88FB-F3B6-4872-97EB-D84B692D1E28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insurance1CompAppServices", "Insurance1CompAppServices\Insurance1CompAppServices.csproj", "{7F7C5DFB-EA67-40AA-AF47-6AA3F799A791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5F3E88FB-F3B6-4872-97EB-D84B692D1E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F3E88FB-F3B6-4872-97EB-D84B692D1E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F3E88FB-F3B6-4872-97EB-D84B692D1E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F7C5DFB-EA67-40AA-AF47-6AA3F799A791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7C5DFB-EA67-40AA-AF47-6AA3F799A791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F7C5DFB-EA67-40AA-AF47-6AA3F799A791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F7C5DFB-EA67-40AA-AF47-6AA3F799A791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
