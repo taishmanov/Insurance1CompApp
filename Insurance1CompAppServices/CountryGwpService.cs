@@ -1,3 +1,4 @@
+using Insurance1CompAppServices.Exceptions;
 using Insurance1CompAppServices.Repositories;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -20,12 +21,24 @@ namespace Insurance1CompAppServices
 
             if (!_cache.TryGetValue(cacheKey, out Dictionary<string, double> cachedResult))
             {
-                var data = await _repository.GetGwpDataAsync(country, lobs, 2008, 2015); // hard coded year range. Could be comen from user request
+                Dictionary<string, double> result;
+                try
+                {
+                    var data = await _repository.GetGwpDataAsync(country, lobs, 2008, 2015); // hard coded year range. Could be comen from user request
 
-                var result = data.ToDictionary(
-                    kv => kv.Key,
-                    kv => kv.Value.Average()
-                );
+                    result = data.ToDictionary(
+                        kv => kv.Key,
+                        kv => kv.Value.Average()
+                    );
+                }
+                catch (ArgumentException ex)
+                {
+                    throw new CalculationException("Error calculating average GWP. Incorrect year values...", ex);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(30)); // could be taken from the appconfig
 
